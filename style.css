@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.image-container {
+    flex: 1;
+    position: sticky;
+    top: 20px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+form {
+    flex: 1;
+   
