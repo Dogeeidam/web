@@ -1,4 +1,11 @@
+body {
+  min-height: 100pv;
+  align-items: center;
+}
+
+
+
 .btn {
-  padding: 20px 80px ;
-  background: #777777 ;
+  padding: 20px 80px;
+  background: #777777;
 }
