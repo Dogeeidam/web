@@ -1,67 +1,26 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Objednávka Skateboardu</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Tlačítko se změnou při najetí myší</title>
+    <style>
+        .button {
+            width: 200px; /* Můžeš upravit podle velikosti tlačítek */
+            height: auto;
+            background-image: url('https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/147ab271-f40a-4b2c-8a5f-4e633ad3e47a/button+koupit.png?content-type=image%2Fpng');
+            background-size: cover;
+            border: none;
+            cursor: pointer;
+            transition: background-image 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            background-image: url('https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/c037982a-d4a8-49eb-a4ec-00c99c84c31a/button+zjistit+více.png?content-type=image%2Fpng');
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="image-container">
-            <img id="deck-image" src="https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/797e9f9e-7322-4df4-81a2-8fda187c45fd/X+DESKA+START.png?content-type=image%2Fpng" alt="Skateboard">
-        </div>
-        <form id="order-form">
-            <h1 class="form-title">Vytvoř si skateboard podle svého gusta</h1>
-            <label class="form-section-title">Vyber velikost designu</label>
-            <div class="option-group">
-                <div class="option" data-value="S">
-                    <img src="https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/cefd54cc-2274-4a80-896c-a0090ceaf412/X+VELIKOST+S+nos.png?content-type=image%2Fpng" alt="Velikost S">
-                    <img src="https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/7a4d6c02-af6b-47b4-9050-df9e55736cc0/X+VELIKOST+S+s.png?content-type=image%2Fpng" alt="Vybraná velikost S" class="hidden">
-                </div>
-                <div class="option" data-value="M">
-                    <img src="https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/82c875e5-2996-4de8-b201-c5bce45fb17b/X+VELIKOST+M+nos.png?content-type=image%2Fpng" alt="Velikost M">
-                    <img src="https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/1cb05b8c-e519-44fd-b4e5-d8d5efe1df56/X+VELIKOST+M+s.png?content-type=image%2Fpng" alt="Vybraná velikost M" class="hidden">
-                </div>
-                <div class="option" data-value="full">
-                    <img src="https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/edbbc36a-72c6-48af-a0fc-ad390ee857c6/X+DESIGN+FULL+ART+nos.png?content-type=image%2Fpng" alt="Full Art">
-                    <img src="https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/cfb7e7a3-e0d0-4773-96d7-8d4a9c239b26/X+DESIGN+FULLART+s.png?content-type=image%2Fpng" alt="Vybraný Full Art" class="hidden">
-                </div>
-            </div>
-
-            <label class="form-section-title">Vyber barvu</label>
-            <div class="color-group">
-                <div class="color-option" data-color="yellow">
-                    <img src="https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/99a87cd9-0bc7-4340-ad2f-b9059ec033f2/X+YELLOW+nos.png?content-type=image%2Fpng" alt="Žlutá">
-                    <img src="https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/46ac5bd7-7026-4044-8fe3-22418c1dcbd6/X+YELLOW+S.png?content-type=image%2Fpng" alt="Vybraná Žlutá" class="hidden">
-                </div>
-                <div class="color-option" data-color="blue">
-                    <img src="https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/70e614b8-ed8e-43b0-8397-e32ac9e64f8c/X+MODRA+nos.png?content-type=image%2Fpng" alt="Modrá">
-                    <img src="https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/b22b8af4-54d1-46bf-b520-eb0285f39536/X+MODRA+S.png?content-type=image%2Fpng" alt="Vybraná Modrá" class="hidden">
-                </div>
-                <div class="color-option" data-color="green">
-                    <img src="https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/4c2d7b20-4406-4f3a-a823-0b2d8f0f6204/X+GREEN+nos.png?content-type=image%2Fpng" alt="Zelená">
-                    <img src="https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/82468034-1ec2-4e90-a270-fe8a0b5c0f1b/X+GREEN+S.png?content-type=image%2Fpng" alt="Vybraná Zelená" class="hidden">
-                </div>
-            </div>
-
-            <label class="form-section-title">Vyber velikost desky</label>
-            <div class="size-group">
-                <div class="size-option" data-size="8.0">
-                    <img src="https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/8e72f5c3-c3f8-4a35-81eb-262447c860ba/X+SIZE+8+NOS.png?content-type=image%2Fpng" alt="8.0">
-                    <img src="https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/d4191197-d25e-4be0-bbcd-b7f2fc39edce/X+SIZE+8+S.png?content-type=image%2Fpng" alt="Vybraná 8.0" class="hidden">
-                </div>
-                <div class="size-option" data-size="8.125">
-                    <img src="https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/bcb73734-b804-4892-902d-947facce221f/X+SIZE+8.125+NOS.png?content-type=image%2Fpng" alt="8.125">
-                    <img src="https://images.squarespace-cdn.com/content/65319686e6fb0c67c8ae528c/2b89ed39-281e-4a92-b73d-b407dccd29ec/X+SIZE+8.125+S.png?content-type=image%2Fpng" alt="Vybraná 8.125" class="hidden">
-                </div>
-            </div>
-
-            <label for="comments">Speciální požadavky:</label>
-            <textarea id="comments" rows="4" placeholder="Zde napiš své požadavky..."></textarea>
-            <button type="submit" id="submit-button">Odeslat objednávku</button>
-        </form>
-    </div>
-    <script src="script.js"></script>
+    <button class="button"></button>
 </body>
 </html>
