@@ -1,17 +1,25 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.button-container {
+    text-align: center;
+}
+
 #interactiveButton {
     background-color: #4CAF50; /* Základní barva */
     color: white;
-    border: none;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    border: 5px solid grey; /* Základní obrys */
+    padding: 20px 50px; /* Větší velikost tlačítka */
+    font-size: 24px; /* Větší text */
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: border-color 0.3s, transform 0.3s;
 }
 
 #interactiveButton:hover {
-    /* Tento styl je záložní, pokud by JavaScript nebyl použit */
-    background-color: #45a049;
+    border-color: blue; /* Nový obrys při najetí */
 }
